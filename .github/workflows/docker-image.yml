@@ -22,4 +22,4 @@ jobs:
           echo "Status:    ${{ steps.buildx.outputs.status }}"
           echo "Flags:     ${{ steps.buildx.outputs.flags }}"
           echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
-          docker buildx ./storm/1.2.4 --platform=linux/arm64 --file Dockerfile --tag justincoded/storm:$(date +%s)
+          docker buildx build ./storm/1.2.4 --platform=linux/arm64 --file Dockerfile --tag justincoded/storm:$(date +%s)
