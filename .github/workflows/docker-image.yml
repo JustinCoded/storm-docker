@@ -28,7 +28,10 @@ jobs:
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
         run: | 
           echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
-      - name: Run Docker Multi-Platform Build and Push
+      - name: Run Docker Multi-Platform Build and Push - Storm 1.2.4
         run: |
-          docker buildx build --platform linux/arm64,linux/amd64 --tag justincoded/storm:$(date +%s) --push ./storm/1.2.4
+          docker buildx build --platform linux/arm64,linux/amd64 --tag justincoded/storm:1.2.4 --push ./storm/1.2.4
+      - name: Run Docker Multi-Platform Build and Push - Storm 2.4.0
+        run: |
+          docker buildx build --platform linux/arm64,linux/amd64 --tag justincoded/storm:2.4.0 --tag justincoded/storm:latest --push ./storm/2.4.0
    
